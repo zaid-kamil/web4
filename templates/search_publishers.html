@@ -1,0 +1,16 @@
+
+{% if query %}
+<h1>Search results for `{{query}}`</h1>
+    {% for record in results %}
+        <p>{{record.name}}</p>
+        <p>{{record.country}}</p>
+        <p>{{record.address}}</p>
+        <p>{{record.website}}</p>
+        <hr>
+    {% empty %}
+        <h3>No record available</h3>
+    {% endfor %} 
+{% else %}
+    <h1>{{message}}</h1>
+{% endif %}
+

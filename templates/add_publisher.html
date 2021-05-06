@@ -1,0 +1,6 @@
+<h1>Add a new publisher</h1>
+<form method="post">
+    {% csrf_token %}
+    {{pub_form.as_p}}
+    <button>submit</button>
+</form>

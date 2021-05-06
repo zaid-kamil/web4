@@ -1,0 +1,6 @@
+<h1>welcome to contact</h1>
+<form method="post">
+    {% csrf_token %}
+    {{c_form.as_p}}
+    <button>submit</button>
+</form>

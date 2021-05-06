@@ -1,0 +1,17 @@
+<h1>All the publishers</h1>
+<a href="{% url 'addpub' %}">Add publisher</a> <br>
+
+<form action="{% url 'searchpub' %}">
+    <input type="search" placeholder="publisher search" name="q"/>
+    <button>search</button>
+</form>
+{% for record in publishers %}
+    <p>{{record.name}}</p>
+    <p>{{record.country}}</p>
+    <p>{{record.address}}</p>
+    <p>{{record.website}}</p>
+    <hr>
+{% empty %}
+    <h3>No record available</h3>
+{% endfor %}
+    
