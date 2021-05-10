@@ -43,3 +43,27 @@ def search_publishers(request):
     else:
         context = {'message':"no query given"}
     return render(request,'search_publishers.html',context)
+
+def delete_publisher(request,pk):
+    try:
+        Publisher.objects.filter(pk=pk).delete()
+    except:
+        print('some error occured')
+    return redirect('viewpub')
+
+def edit_publisher(request,pk):
+    try:
+        data = Publisher.objects.get(pk=pk)
+        if request.method =='POST':
+            form = PublisherForm(request.POST,instance=data)
+            if form.is_valid():
+                form.save()
+                return redirect('viewpub')
+        else:       
+            form = PublisherForm(instance=data)
+        context = {"pform":form}
+        return render(request,'editpublisher.html',context)
+    except Exception as e:
+        print('some error occurred')
+        return redirect('viewpub')
+

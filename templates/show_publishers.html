@@ -10,6 +10,8 @@
     <p>{{record.country}}</p>
     <p>{{record.address}}</p>
     <p>{{record.website}}</p>
+    <a href="{% url 'editpub' record.pk %}">edit</a>
+    <a href="{% url 'deletepub' record.pk %}">delete</a>
     <hr>
 {% empty %}
     <h3>No record available</h3>

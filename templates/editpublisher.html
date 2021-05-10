@@ -1,0 +1,6 @@
+<h1>Edit publisher details</h1>
+<form method="post">
+    {% csrf_token %}
+    {{pform.as_p}}
+    <button>submit</button>
+</form>
